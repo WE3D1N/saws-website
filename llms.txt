@@ -1,0 +1,41 @@
+# SAWS – Ströms Arbor Works AB
+
+SAWS (Ströms Arbor Works AB) är ett professionellt trädfällnings- och arboristföretag baserat i Strömsund, Jämtland, Sverige. Företaget grundades 2018 och utför certifierat arboristarbete för privatpersoner, företag och kommuner.
+
+## Tjänster
+
+- **Sektionsfällning**: Kontrollerad trädfällning via sektionering, idealisk nära byggnader och i begränsade utrymmen. Minimerar risk för skador på omgivande fastigheter.
+- **Stubbfräsning**: Mekanisk borttagning av trädstubbar till marknivå eller djupare. Eliminerar säkerhetsrisker och möjliggör ny markanvändning.
+- **Skotning**: Transport och extraktion av avverkat virke, även i svår terräng. Effektiv lösning för lantbrukare och skogsägare i Jämtland.
+- **Röjningsuppdrag**: Markröjning och buskröjning för privatpersoner, fastighetsbolag och kommuner. Kan utföras som engångsuppdrag eller underhållskontrakt.
+
+## Kontaktuppgifter
+
+- Telefon: 070-207 88 58
+- E-post: info@saws.se
+- Adress: Amaliagatan 17, 83333 Strömsund, Sverige
+- Öppettider: Måndag–Fredag 07:00–17:00, Lördag 08:00–14:00, Söndag stängt
+
+## Serviceområde
+
+Primärt: Strömsund, Jämtland
+Även: Östersund, Kramfors, Härnösand, Sollefteå, Sundsvall, Härjedalen, Västernorrland
+Reser för större uppdrag i hela norra Sverige.
+
+## Sidstruktur
+
+- /index.html — Startsida med tjänsteöversikt, FAQ och kundrecensioner
+- /tjanster.html — Detaljerad information om alla fyra tjänster
+- /galleri.html — Projektbilder från Strömsund och Jämtland
+- /om-oss.html — Företagsinformation, certifieringar och utrustning
+- /kontakt.html — Kontaktformulär, adress, öppettider och karta
+- /tradfallning-stromsund.html — Lokal landningssida för trädfällning i Strömsund
+
+## Certifieringar och expertis
+
+Certifierade arborister utbildade enligt EAC-standard (European Arborist Certification). Fullt ansvarsförsäkrade. Arbete utförs i enlighet med Arbetsmiljöverkets föreskrifter (AFS) för motorsågsarbete. Modern utrustning från Husqvarna och Stihl.
+
+## Sociala medier
+
+- Facebook: https://www.facebook.com/stroms.arbor.works.ab
+- Instagram: https://www.instagram.com/stroms.arbor.works.ab

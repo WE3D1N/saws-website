@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -s -o \"/Users/alexanderwedinoman/Documents/Claude Code/Saws-website/assets/images/gallery-3.jpg\" \"https://impro.usercontent.one/appid/oneComWsb/domain/saws.se/media/saws.se/onewebmedia/664367481_2382490758856093_4275220198384108748_n.jpg\" -w \"%{http_code}\")",
+      "Bash(curl -s -o \"/Users/alexanderwedinoman/Documents/Claude Code/Saws-website/assets/images/gallery-3.jpg\" \"https://impro.usercontent.one/appid/oneComWsb/domain/saws.se/media/saws.se/onewebmedia/664367481_2382490758856093_4275198384108748_n.jpg\" -w \"%{http_code}\")",
+      "Bash(node screenshot.mjs http://localhost:3000/tjanster.html tjanster-r1)",
+      "Bash(node screenshot.mjs http://localhost:3000/galleri.html galleri-r1)",
+      "Bash(node screenshot.mjs http://localhost:3000 index-r2)",
+      "Bash(node screenshot.mjs http://localhost:3000/tjanster.html tjanster-r2)",
+      "Bash(node screenshot.mjs http://localhost:3000/galleri.html galleri-r2)",
+      "Bash(wait)",
+      "Bash(node screenshot.mjs http://localhost:3000 index)"
+    ]
+  }
+}

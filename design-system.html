@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design System — SAWS</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <!-- Tailwind CDN -->
+  <script>
+    tailwind = { config: {
+      theme: { extend: {
+        colors: {
+          forest: { DEFAULT: '#1a3a2a', mid: '#2d5c40', light: '#3d7a57', pale: '#e8f0eb' },
+          bark:   { DEFAULT: '#6b4226', light: '#a0613a' },
+          cream:  { DEFAULT: '#f5f0e8', dark: '#e8dece', deeper: '#d8ceba' },
+          ink:    { DEFAULT: '#1c1c1c', muted: '#4a4a4a', faint: '#888880' },
+        },
+        fontFamily: {
+          display: ['Playfair Display', 'Georgia', 'serif'],
+          body:    ['Inter', 'Helvetica Neue', 'Arial', 'sans-serif'],
+        },
+      }}
+    }
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- ============================================================
+  SHARED NAV — copy verbatim into every page.
+  Change only: aria-current="page" on the active link.
+  ============================================================ -->
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="/" class="nav-logo" aria-label="SAWS startsida">
+      <img src="brand_assets/logo-primary.png" alt="SAWS – Ströms Arbor Works AB">
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="/" aria-current="page">Hem</a></li>
+      <li><a href="tjanster.html">Tjänster</a></li>
+      <li><a href="galleri.html">Galleri</a></li>
+      <li><a href="om-oss.html">Om oss</a></li>
+      <li><a href="kontakt.html">Kontakt</a></li>
+    </ul>
+    <a href="tel:+46702078858" class="nav-cta btn btn-primary">
+      070-207 88 58
+    </a>
+    <button class="nav-hamburger" aria-label="Öppna meny" aria-expanded="false" aria-controls="mobile-menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile menu -->
+<div class="nav-mobile" id="mobile-menu" role="navigation" aria-label="Mobilmeny">
+  <ul role="list">
+    <li><a href="/" aria-current="page">Hem</a></li>
+    <li><a href="tjanster.html">Tjänster</a></li>
+    <li><a href="galleri.html">Galleri</a></li>
+    <li><a href="om-oss.html">Om oss</a></li>
+    <li><a href="kontakt.html">Kontakt</a></li>
+    <li>
+      <a href="tel:+46702078858" class="btn btn-primary btn-lg w-full mt-4 justify-center">
+        Ring oss: 070-207 88 58
+      </a>
+    </li>
+  </ul>
+</div>
+<!-- ============================================================
+  END SHARED NAV
+  ============================================================ -->
+
+<div class="page-content">
+  <!-- Design System showcase -->
+  <section class="section">
+    <div class="container">
+      <h1 class="mb-8">SAWS Design System</h1>
+      <p class="section-intro mb-16">Visuell referens för alla agenter. Använd dessa tokens exakt — inga avvikelser.</p>
+
+      <!-- Colors -->
+      <h2 class="mb-6">Färgpalett</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
+        <div>
+          <div style="background:#1a3a2a;height:80px;border-radius:8px;margin-bottom:8px;box-shadow:var(--shadow-card)"></div>
+          <p class="text-sm font-semibold">Forest #1a3a2a</p>
+          <p class="text-xs text-ink-muted">Primär</p>
+        </div>
+        <div>
+          <div style="background:#2d5c40;height:80px;border-radius:8px;margin-bottom:8px;box-shadow:var(--shadow-card)"></div>
+          <p class="text-sm font-semibold">Forest Mid #2d5c40</p>
+          <p class="text-xs text-ink-muted">Hover</p>
+        </div>
+        <div>
+          <div style="background:#3d7a57;height:80px;border-radius:8px;margin-bottom:8px;box-shadow:var(--shadow-card)"></div>
+          <p class="text-sm font-semibold">Forest Light #3d7a57</p>
+          <p class="text-xs text-ink-muted">Accent</p>
+        </div>
+        <div>
+          <div style="background:#e8f0eb;height:80px;border-radius:8px;margin-bottom:8px;border:1px solid #d8dedd"></div>
+          <p class="text-sm font-semibold">Forest Pale #e8f0eb</p>
+          <p class="text-xs text-ink-muted">Bakgrund</p>
+        </div>
+        <div>
+          <div style="background:#6b4226;height:80px;border-radius:8px;margin-bottom:8px;box-shadow:var(--shadow-card)"></div>
+          <p class="text-sm font-semibold">Bark #6b4226</p>
+          <p class="text-xs text-ink-muted">Accent/CTA</p>
+        </div>
+        <div>
+          <div style="background:#a0613a;height:80px;border-radius:8px;margin-bottom:8px;box-shadow:var(--shadow-card)"></div>
+          <p class="text-sm font-semibold">Bark Light #a0613a</p>
+          <p class="text-xs text-ink-muted">Hover bark</p>
+        </div>
+        <div>
+          <div style="background:#f5f0e8;height:80px;border-radius:8px;margin-bottom:8px;border:1px solid #e8dece"></div>
+          <p class="text-sm font-semibold">Cream #f5f0e8</p>
+          <p class="text-xs text-ink-muted">Sidbakgrund</p>
+        </div>
+        <div>
+          <div style="background:#1c1c1c;height:80px;border-radius:8px;margin-bottom:8px;"></div>
+          <p class="text-sm font-semibold">Ink #1c1c1c</p>
+          <p class="text-xs text-ink-muted">Text</p>
+        </div>
+      </div>
+
+      <!-- Typography -->
+      <h2 class="mb-8">Typografi</h2>
+      <div class="mb-16 space-y-4">
+        <div style="padding:32px;background:white;border-radius:16px;box-shadow:var(--shadow-card)">
+          <p class="section-label">Display / Rubriker</p>
+          <h1 style="margin-bottom:16px">H1 — Trädfällning i Strömsund</h1>
+          <h2 style="margin-bottom:16px">H2 — Professionella arborister</h2>
+          <h3 style="margin-bottom:16px">H3 — Sektionsfällning</h3>
+          <h4>H4 — Kontakta oss idag</h4>
+        </div>
+        <div style="padding:32px;background:white;border-radius:16px;box-shadow:var(--shadow-card)">
+          <p class="section-label">Body / Inter</p>
+          <p style="font-size:1.125rem;margin-bottom:12px">Stor ingress — Vi utför professionell trädfällning, stubbfräsning och skotning i Strömsund och Jämtland.</p>
+          <p style="margin-bottom:12px">Brödtext — Ströms Arbor Works AB har lång erfarenhet av trädfällning och arboristarbete i norra Sverige. Vi arbetar säkert, effektivt och med stor hänsyn till din fastighet.</p>
+          <p style="font-size:0.875rem;color:var(--color-ink-faint)">Liten text / metadata — Strömsund, Jämtland</p>
+        </div>
+      </div>
+
+      <!-- Buttons -->
+      <h2 class="mb-6">Knappar</h2>
+      <div class="flex flex-wrap gap-4 mb-16">
+        <a href="#" class="btn btn-primary btn-lg">Ring oss</a>
+        <a href="#" class="btn btn-outline btn-lg">Läs mer</a>
+        <a href="#" class="btn btn-bark btn-lg">Begär offert</a>
+        <div style="background:var(--color-forest);padding:16px;border-radius:8px;display:flex;gap:16px">
+          <a href="#" class="btn btn-secondary btn-lg">Kontakta oss</a>
+        </div>
+      </div>
+
+      <!-- Cards -->
+      <h2 class="mb-6">Kort</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+        <div class="card">
+          <div class="img-treated" style="height:200px">
+            <img src="assets/images/sektionsfallning.jpg" alt="Sektionsfällning">
+            <div class="img-overlay"></div>
+            <div class="img-color-layer"></div>
+          </div>
+          <div style="padding:24px">
+            <h3 style="margin-bottom:8px">Sektionsfällning</h3>
+            <p style="font-size:0.9375rem">Professionell trädfällning via kontrollerad sektionering i Strömsund.</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="img-treated" style="height:200px">
+            <img src="assets/images/stubbfrasning.jpg" alt="Stubbfräsning">
+            <div class="img-overlay"></div>
+            <div class="img-color-layer"></div>
+          </div>
+          <div style="padding:24px">
+            <h3 style="margin-bottom:8px">Stubbfräsning</h3>
+            <p style="font-size:0.9375rem">Mekanisk borttagning av trädstubbar i Jämtland.</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="img-treated" style="height:200px">
+            <img src="assets/images/skotning.jpg" alt="Skotning">
+            <div class="img-overlay"></div>
+            <div class="img-color-layer"></div>
+          </div>
+          <div style="padding:24px">
+            <h3 style="margin-bottom:8px">Skotning</h3>
+            <p style="font-size:0.9375rem">Transport och extraktion av avverkat virke i Härjedalen.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Grain + gradient demo -->
+      <h2 class="mb-6">Hero-effekt (grain + gradient)</h2>
+      <div style="position:relative;height:300px;border-radius:16px;overflow:hidden;margin-bottom:64px">
+        <img src="assets/images/sektionsfallning.jpg" alt="" style="width:100%;height:100%;object-fit:cover">
+        <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(26,58,42,0.85) 0%, rgba(26,58,42,0.40) 50%, rgba(26,58,42,0.20) 100%);z-index:2"></div>
+        <div style="position:absolute;inset:0;background:var(--color-forest);opacity:0.15;mix-blend-mode:multiply;z-index:3"></div>
+        <!-- Grain -->
+        <svg style="position:absolute;inset:0;pointer-events:none;z-index:4;width:100%;height:100%" xmlns="http://www.w3.org/2000/svg">
+          <filter id="grain-demo"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
+          <feColorMatrix type="saturate" values="0"/></filter>
+          <rect width="100%" height="100%" filter="url(#grain-demo)" opacity="0.05"/>
+        </svg>
+        <div style="position:absolute;inset:0;z-index:5;display:flex;flex-direction:column;justify-content:flex-end;padding:32px">
+          <span class="badge badge-cream" style="margin-bottom:12px;width:fit-content">Strömsund · Jämtland</span>
+          <h2 style="color:var(--color-cream);margin-bottom:8px">Trädfällning & Stubbfräsning i Strömsund</h2>
+          <p style="color:rgba(245,240,232,0.8);font-size:1.125rem">Vi sågar – högt som lågt!</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</div>
+
+<!-- ============================================================
+  SHARED FOOTER — copy verbatim into every page.
+  ============================================================ -->
+<footer class="footer" role="contentinfo">
+  <!-- Grain texture -->
+  <svg class="grain-overlay" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <filter id="grain-footer"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
+    <feColorMatrix type="saturate" values="0"/></filter>
+    <rect width="100%" height="100%" filter="url(#grain-footer)" opacity="0.04"/>
+  </svg>
+
+  <div class="container">
+    <div class="footer-grid">
+      <!-- Brand -->
+      <div class="footer-brand">
+        <img src="brand_assets/logo-with-tagline.png" alt="SAWS – Vi sågar högt som lågt">
+        <p style="font-size:0.9375rem;margin-top:0;line-height:1.7">Professionell trädfällning, stubbfräsning och röjning i Strömsund och Jämtland. Enkelt, tydligt och förtroendeingivande.</p>
+        <div class="footer-social" aria-label="Sociala medier">
+          <a href="https://www.facebook.com/stroms.arbor.works.ab" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/stroms.arbor.works.ab" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Tjänster -->
+      <div>
+        <h4>Tjänster</h4>
+        <ul class="footer-links" role="list">
+          <li><a href="tjanster.html#sektionsfallning">Sektionsfällning</a></li>
+          <li><a href="tjanster.html#stubbfrasning">Stubbfräsning</a></li>
+          <li><a href="tjanster.html#skotning">Skotning</a></li>
+          <li><a href="tjanster.html#rojning">Röjningsuppdrag</a></li>
+          <li><a href="tradfallning-stromsund.html">Trädfällning Strömsund</a></li>
+        </ul>
+      </div>
+
+      <!-- Navigation -->
+      <div>
+        <h4>Navigation</h4>
+        <ul class="footer-links" role="list">
+          <li><a href="/">Hem</a></li>
+          <li><a href="tjanster.html">Tjänster</a></li>
+          <li><a href="galleri.html">Galleri</a></li>
+          <li><a href="om-oss.html">Om oss</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </div>
+
+      <!-- Kontakt -->
+      <div>
+        <h4>Kontakt</h4>
+        <div class="footer-contact-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          <a href="tel:+46702078858">070-207 88 58</a>
+        </div>
+        <div class="footer-contact-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <a href="mailto:info@saws.se">info@saws.se</a>
+        </div>
+        <div class="footer-contact-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>Amaliagatan 17<br>83333 Strömsund</span>
+        </div>
+        <div class="footer-hours">
+          <strong style="color:rgba(245,240,232,0.65);font-weight:600">Öppettider</strong><br>
+          Mån–Fre: 07:00–17:00<br>
+          Lördag: 08:00–14:00<br>
+          Söndag: Stängt
+        </div>
+        <a href="https://g.page/r/saws-stromsund" target="_blank" rel="noopener noreferrer"
+           style="display:inline-flex;align-items:center;gap:6px;margin-top:16px;font-size:0.8125rem;color:rgba(245,240,232,0.65);border-bottom:1px solid rgba(245,240,232,0.20);padding-bottom:2px;transition:color 280ms,border-color 280ms">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          Se våra recensioner på Google
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 Ströms Arbor Works AB · Org.nr 559XXX-XXXX</p>
+      <p>Trädfällning Strömsund · Jämtland · Härjedalen · Västernorrland</p>
+    </div>
+  </div>
+</footer>
+<!-- ============================================================
+  END SHARED FOOTER
+  ============================================================ -->
+
+<script>
+  // Hamburger menu toggle
+  const hamburger = document.querySelector('.nav-hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  if (hamburger && mobileMenu) {
+    hamburger.addEventListener('click', () => {
+      const isOpen = hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open', isOpen);
+      hamburger.setAttribute('aria-expanded', isOpen);
+    });
+    // Close on outside click
+    document.addEventListener('click', (e) => {
+      if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
+        hamburger.classList.remove('open');
+        mobileMenu.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  if (reveals.length) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 80);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(el => observer.observe(el));
+  }
+</script>
+
+</body>
+</html>

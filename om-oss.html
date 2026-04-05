@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Om Oss – Ströms Arbor Works AB | Certifierade Arborister i Strömsund</title>
+  <meta name="description" content="Ströms Arbor Works AB (SAWS) är certifierade arborister baserade i Strömsund, Jämtland. Läs om vår erfarenhet, certifieringar och utrustning.">
+  <link rel="canonical" href="https://saws.se/om-oss.html">
+
+  <script>
+    tailwind = { config: { theme: { extend: {
+      colors: {
+        forest: { DEFAULT: '#1a3a2a', mid: '#2d5c40', light: '#3d7a57', pale: '#e8f0eb' },
+        bark:   { DEFAULT: '#6b4226', light: '#a0613a' },
+        cream:  { DEFAULT: '#f5f0e8', dark: '#e8dece', deeper: '#d8ceba' },
+        ink:    { DEFAULT: '#1c1c1c', muted: '#4a4a4a', faint: '#888880' },
+      },
+      fontFamily: {
+        display: ['Playfair Display', 'Georgia', 'serif'],
+        body:    ['Inter', 'Helvetica Neue', 'Arial', 'sans-serif'],
+      },
+    }}}}
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <style>
+    .page-hero {
+      position: relative;
+      min-height: 52vh;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      background: var(--color-forest);
+    }
+    .page-hero-bg { position: absolute; inset: 0; }
+    .page-hero-bg img { width: 100%; height: 100%; object-fit: cover; opacity: 0.35; }
+    .page-hero-gradient {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(26,58,42,0.95) 0%, rgba(26,58,42,0.55) 60%, rgba(26,58,42,0.30) 100%);
+    }
+    .page-hero-content { position: relative; z-index: 5; width: 100%; padding-bottom: var(--space-16); padding-top: calc(var(--nav-height) + var(--space-16)); }
+    .page-hero svg.grain-overlay { z-index: 3; }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-16);
+      align-items: center;
+    }
+    @media (min-width: 768px) {
+      .story-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    .cert-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-6);
+    }
+    @media (min-width: 640px) { .cert-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1024px) { .cert-grid { grid-template-columns: repeat(4, 1fr); } }
+
+    .cert-card {
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: var(--space-8);
+      box-shadow: var(--shadow-card);
+      border: 1px solid rgba(26,58,42,0.06);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+      transition: transform var(--duration-slow) var(--ease-spring),
+                  box-shadow var(--duration-slow) var(--ease-out);
+    }
+    .cert-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-elevated); }
+
+    .cert-icon {
+      width: 48px; height: 48px;
+      background: var(--color-forest-pale);
+      border-radius: var(--radius-md);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--color-forest);
+    }
+
+    .area-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-3);
+    }
+    @media (min-width: 640px) { .area-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (min-width: 1024px) { .area-grid { grid-template-columns: repeat(4, 1fr); } }
+
+    .area-pill {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      padding: var(--space-3) var(--space-4);
+      background: var(--color-forest-pale);
+      border-radius: var(--radius-md);
+      font-size: 0.9375rem;
+      font-weight: 500;
+      color: var(--color-forest);
+      border: 1px solid rgba(26,58,42,0.10);
+    }
+    .area-pill svg { flex-shrink: 0; color: var(--color-bark); }
+
+    .equip-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-4);
+    }
+    @media (min-width: 640px) { .equip-grid { grid-template-columns: repeat(3, 1fr); } }
+
+    .equip-item {
+      display: flex; align-items: center; gap: var(--space-3);
+      padding: var(--space-4);
+      background: white;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-card);
+      font-size: 0.9375rem; font-weight: 500; color: var(--color-ink);
+    }
+    .equip-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--color-bark); flex-shrink: 0;
+    }
+
+    .cta-section {
+      background: var(--color-forest);
+      position: relative;
+      overflow: hidden;
+      padding-block: var(--space-24);
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="/" class="nav-logo" aria-label="SAWS startsida">
+      <img src="brand_assets/logo-primary.png" alt="SAWS – Ströms Arbor Works AB">
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="/">Hem</a></li>
+      <li><a href="tjanster.html">Tjänster</a></li>
+      <li><a href="galleri.html">Galleri</a></li>
+      <li><a href="om-oss.html" aria-current="page">Om oss</a></li>
+      <li><a href="kontakt.html">Kontakt</a></li>
+    </ul>
+    <a href="tel:+46702078858" class="nav-cta btn btn-primary">070-207 88 58</a>
+    <button class="nav-hamburger" aria-label="Öppna meny" aria-expanded="false" aria-controls="mobile-menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="nav-mobile" id="mobile-menu" role="navigation" aria-label="Mobilmeny">
+  <ul role="list">
+    <li><a href="/">Hem</a></li>
+    <li><a href="tjanster.html">Tjänster</a></li>
+    <li><a href="galleri.html">Galleri</a></li>
+    <li><a href="om-oss.html" aria-current="page">Om oss</a></li>
+    <li><a href="kontakt.html">Kontakt</a></li>
+    <li><a href="tel:+46702078858" class="btn btn-primary btn-lg" style="width:100%;margin-top:16px;justify-content:center;display:flex">Ring oss: 070-207 88 58</a></li>
+  </ul>
+</div>
+
+<div class="page-content">
+
+  <!-- PAGE HERO -->
+  <section class="page-hero" aria-label="Om oss">
+    <div class="page-hero-bg">
+      <img src="assets/images/skotning.jpg" alt="">
+    </div>
+    <div class="page-hero-gradient"></div>
+    <svg class="grain-overlay" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <filter id="grain-hero"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/></filter>
+      <rect width="100%" height="100%" filter="url(#grain-hero)" opacity="0.05"/>
+    </svg>
+    <div class="page-hero-content">
+      <div class="container">
+        <span class="badge badge-cream" style="margin-bottom:var(--space-5);display:inline-flex">Strömsund · Jämtland</span>
+        <h1 style="color:var(--color-cream);font-size:clamp(2.25rem,5vw,3.75rem);margin-bottom:var(--space-4)">Om Ströms Arbor Works AB</h1>
+        <h2 style="font-family:var(--font-display);font-style:italic;font-weight:400;font-size:clamp(1.1rem,2.5vw,1.625rem);color:rgba(245,240,232,0.75);letter-spacing:-0.01em">Certifierade arborister i Strömsund sedan 2018</h2>
+      </div>
+    </div>
+  </section>
+
+  <!-- STORY -->
+  <section class="section" style="background:var(--color-cream)">
+    <div class="container">
+      <div class="story-grid">
+        <div class="reveal">
+          <span class="section-label">Vår historia</span>
+          <h2 class="section-title">Professionellt trädvårdsarbete i Jämtland</h2>
+          <div class="divider"></div>
+          <p style="margin-bottom:var(--space-5)">Ströms Arbor Works AB grundades 2018 i Strömsund med ett tydligt mål: att erbjuda professionell och säker trädfällning och arboristservice i Jämtland och angränsande regioner. Vi är ett lokalt företag med djup förankring i Strömsund och en stark känsla för det nordsvenska skogslandskapet.</p>
+          <p style="margin-bottom:var(--space-5)">Vår filosofi sammanfattas i tre ord: enkelt, tydligt och förtroendeingivande. Det innebär att vi kommunicerar klart och ärligt med varje kund, att vi utför alla uppdrag med precision och säkerhet, och att vi alltid lämnar platsen i bättre skick än vi fann den.</p>
+          <p>Vi betjänar privatpersoner, fastighetsbolag, lantbrukare och kommuner i Strömsund, Jämtland, Härjedalen och Västernorrland. Med modern utrustning och lång erfarenhet av nordsvenska förhållanden kan vi hantera allt från enstaka problemträd till större röjningsuppdrag i svår terräng.</p>
+        </div>
+        <div class="img-treated reveal" style="border-radius:var(--radius-xl);overflow:hidden;height:480px">
+          <img src="assets/images/gallery-2.jpg" alt="SAWS team i arbete i Jämtland" style="width:100%;height:100%;object-fit:cover">
+          <div class="img-overlay"></div>
+          <div class="img-color-layer"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section class="section" style="background:var(--color-forest-pale)">
+    <div class="container">
+      <div class="reveal" style="text-align:center;max-width:600px;margin-inline:auto;margin-bottom:var(--space-12)">
+        <span class="section-label">Certifieringar & Expertis</span>
+        <h2 class="section-title">Varför välja SAWS?</h2>
+        <p class="section-intro" style="margin-inline:auto">Vi arbetar efter högsta säkerhetsstandarder och är fullt försäkrade för alla typer av arboristarbeten.</p>
+      </div>
+      <div class="cert-grid">
+        <div class="cert-card reveal">
+          <div class="cert-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+          </div>
+          <div>
+            <h3 style="font-size:1.125rem;margin-bottom:var(--space-2)">Certifierade Arborister</h3>
+            <p style="font-size:0.9rem">Samtliga uppdrag utförs av certifierade arborister utbildade enligt europeisk standard (EAC). Vi arbetar metodiskt och säkert oavsett uppdragets komplexitet.</p>
+          </div>
+        </div>
+        <div class="cert-card reveal">
+          <div class="cert-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div>
+            <h3 style="font-size:1.125rem;margin-bottom:var(--space-2)">Fullt Försäkrade</h3>
+            <p style="font-size:0.9rem">Vi är fullt ansvarsförsäkrade och licensierade. Allt arbete utförs i enlighet med Arbetsmiljöverkets föreskrifter (AFS) för motorsågsarbete och trädfällning.</p>
+          </div>
+        </div>
+        <div class="cert-card reveal">
+          <div class="cert-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="7" height="7"/><rect x="15" y="3" width="7" height="7"/><rect x="15" y="14" width="7" height="7"/><rect x="2" y="14" width="7" height="7"/></svg>
+          </div>
+          <div>
+            <h3 style="font-size:1.125rem;margin-bottom:var(--space-2)">Modern Utrustning</h3>
+            <p style="font-size:0.9rem">Vi investerar kontinuerligt i modern och pålitlig utrustning. Professionella motorsågar, stubbfräsar och lyftredskap för alla typer av uppdrag – enkla och komplexa.</p>
+          </div>
+        </div>
+        <div class="cert-card reveal">
+          <div class="cert-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <h3 style="font-size:1.125rem;margin-bottom:var(--space-2)">Lokal Expertis</h3>
+            <p style="font-size:0.9rem">Över 6 år i Strömsund ger oss unik kunskap om lokala trädarter, terräng och klimatförhållanden i norra Sverige. Vi känner Jämtlands skogar.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE AREA -->
+  <section class="section" style="background:var(--color-cream)">
+    <div class="container">
+      <div class="reveal" style="max-width:700px;margin-bottom:var(--space-10)">
+        <span class="section-label">Serviceområde</span>
+        <h2 class="section-title">Vi verkar i hela Jämtland och Västernorrland</h2>
+        <p style="font-size:1.0625rem;color:var(--color-ink-muted);line-height:1.75">SAWS är baserade i Strömsund men utför uppdrag i hela regionen. Vi reser gärna för större projekt och har lång erfarenhet av att arbeta i norra Sveriges varierande terräng.</p>
+      </div>
+      <div class="area-grid reveal">
+        <div class="area-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Strömsund</div>
+        <div class="area-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Östersund</div>
+        <div class="area-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Kramfors</div>
+        <div class="area-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Härnösand</div>
+        <div class="area-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Härjedalen</div>
+        <div class="area-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Sollefteå</div>
+        <div class="area-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Sundsvall</div>
+        <div class="area-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Hela Jämtland</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EQUIPMENT -->
+  <section class="section-sm" style="background:var(--color-cream-dark)">
+    <div class="container">
+      <div class="reveal" style="margin-bottom:var(--space-8)">
+        <span class="section-label">Utrustning</span>
+        <h2 class="section-title">Vår Utrustning</h2>
+        <p style="color:var(--color-ink-muted);max-width:52ch">Vi använder professionell utrustning av högsta kvalitet för att kunna utföra alla typer av trädfällnings- och arboristarbeten säkert och effektivt.</p>
+      </div>
+      <div class="equip-grid reveal">
+        <div class="equip-item"><div class="equip-dot"></div>Professionella motorsågar (Husqvarna/Stihl)</div>
+        <div class="equip-item"><div class="equip-dot"></div>Stubbfräsar – professionella modeller</div>
+        <div class="equip-item"><div class="equip-dot"></div>Lyftredskap och blockblock</div>
+        <div class="equip-item"><div class="equip-dot"></div>Skotare för virkestransport</div>
+        <div class="equip-item"><div class="equip-dot"></div>Fullständig personlig skyddsutrustning</div>
+        <div class="equip-item"><div class="equip-dot"></div>Flishugg för grönrestmaterial</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <svg class="grain-overlay" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <filter id="grain-cta"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/></filter>
+      <rect width="100%" height="100%" filter="url(#grain-cta)" opacity="0.04"/>
+    </svg>
+    <div style="position:absolute;top:-80px;right:-5%;width:45%;height:350px;background:radial-gradient(ellipse,rgba(61,122,87,0.20) 0%,transparent 70%);pointer-events:none" aria-hidden="true"></div>
+    <div class="container" style="position:relative;z-index:2;text-align:center">
+      <span class="section-label" style="color:rgba(245,240,232,0.55)">Kom i kontakt</span>
+      <h2 style="color:var(--color-cream);margin-bottom:var(--space-5)">Kontakta oss för ett kostnadsfritt prisförslag</h2>
+      <p style="color:rgba(245,240,232,0.70);max-width:52ch;margin-inline:auto;margin-bottom:var(--space-8);font-size:1.0625rem">Vi svarar snabbt och erbjuder alltid en kostnadsfri initial konsultation för uppdrag i Strömsund och Jämtland.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:var(--space-4);justify-content:center">
+        <a href="kontakt.html" class="btn btn-bark btn-lg">Kontakta oss</a>
+        <a href="tel:+46702078858" class="btn btn-secondary btn-lg">Ring: 070-207 88 58</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="footer" role="contentinfo">
+  <svg class="grain-overlay" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <filter id="grain-footer"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
+    <feColorMatrix type="saturate" values="0"/></filter>
+    <rect width="100%" height="100%" filter="url(#grain-footer)" opacity="0.04"/>
+  </svg>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="brand_assets/logo-primary.png" alt="SAWS – Vi sågar högt som lågt">
+        <p style="font-size:0.9375rem;margin-top:0;line-height:1.7">Professionell trädfällning, stubbfräsning och röjning i Strömsund och Jämtland. Enkelt, tydligt och förtroendeingivande.</p>
+        <div class="footer-social" aria-label="Sociala medier">
+          <a href="https://www.facebook.com/stroms.arbor.works.ab" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+          <a href="https://www.instagram.com/stroms.arbor.works.ab" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4>Tjänster</h4>
+        <ul class="footer-links" role="list">
+          <li><a href="tjanster.html#sektionsfallning">Sektionsfällning</a></li>
+          <li><a href="tjanster.html#stubbfrasning">Stubbfräsning</a></li>
+          <li><a href="tjanster.html#skotning">Skotning</a></li>
+          <li><a href="tjanster.html#rojning">Röjningsuppdrag</a></li>
+          <li><a href="tradfallning-stromsund.html">Trädfällning Strömsund</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Navigation</h4>
+        <ul class="footer-links" role="list">
+          <li><a href="/">Hem</a></li>
+          <li><a href="tjanster.html">Tjänster</a></li>
+          <li><a href="galleri.html">Galleri</a></li>
+          <li><a href="om-oss.html">Om oss</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <div class="footer-contact-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><a href="tel:+46702078858">070-207 88 58</a></div>
+        <div class="footer-contact-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><a href="mailto:info@saws.se">info@saws.se</a></div>
+        <div class="footer-contact-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Amaliagatan 17<br>83333 Strömsund</span></div>
+        <div class="footer-hours"><strong style="color:rgba(245,240,232,0.65);font-weight:600">Öppettider</strong><br>Mån–Fre: 07:00–17:00<br>Lördag: 08:00–14:00<br>Söndag: Stängt</div>
+        <a href="https://g.page/r/saws-stromsund" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:6px;margin-top:16px;font-size:0.8125rem;color:rgba(245,240,232,0.65);border-bottom:1px solid rgba(245,240,232,0.20);padding-bottom:2px">★ Se våra recensioner på Google</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Ströms Arbor Works AB · Org.nr 559XXX-XXXX</p>
+      <p>Trädfällning Strömsund · Jämtland · Härjedalen · Västernorrland</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const hamburger = document.querySelector('.nav-hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  if (hamburger && mobileMenu) {
+    hamburger.addEventListener('click', () => {
+      const isOpen = hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open', isOpen);
+      hamburger.setAttribute('aria-expanded', isOpen);
+    });
+    document.addEventListener('click', (e) => {
+      if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
+        hamburger.classList.remove('open'); mobileMenu.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+  const reveals = document.querySelectorAll('.reveal');
+  if (reveals.length) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) { setTimeout(() => entry.target.classList.add('visible'), i * 80); observer.unobserve(entry.target); }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(el => observer.observe(el));
+  }
+</script>
+</body>
+</html>

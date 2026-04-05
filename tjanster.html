@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tjänster – Trädfällning & Stubbfräsning i Strömsund | SAWS</title>
+  <meta name="description" content="SAWS erbjuder sektionsfällning, stubbfräsning, skotning och röjning i Strömsund och Jämtland. Professionellt och säkert – ring 070-207 88 58.">
+  <link rel="canonical" href="https://saws.se/tjanster.html">
+  <link rel="stylesheet" href="css/styles.css">
+  <script>
+    tailwind = { config: {
+      theme: { extend: {
+        colors: {
+          forest: { DEFAULT: '#1a3a2a', mid: '#2d5c40', light: '#3d7a57', pale: '#e8f0eb' },
+          bark:   { DEFAULT: '#6b4226', light: '#a0613a' },
+          cream:  { DEFAULT: '#f5f0e8', dark: '#e8dece', deeper: '#d8ceba' },
+          ink:    { DEFAULT: '#1c1c1c', muted: '#4a4a4a', faint: '#888880' },
+        },
+        fontFamily: {
+          display: ['Playfair Display', 'Georgia', 'serif'],
+          body:    ['Inter', 'Helvetica Neue', 'Arial', 'sans-serif'],
+        },
+      }}
+    }
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ── Page Hero ── */
+    .tjanster-hero {
+      position: relative;
+      min-height: 52vh;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      background: var(--color-forest);
+    }
+
+    .tjanster-hero__bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .tjanster-hero__bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.38;
+      filter: saturate(0.7);
+    }
+
+    /* Image treatment layers */
+    .tjanster-hero__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(26,58,42,0.92) 0%, rgba(26,58,42,0.55) 50%, rgba(26,58,42,0.30) 100%);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .tjanster-hero__color-layer {
+      position: absolute;
+      inset: 0;
+      background: var(--color-forest);
+      opacity: 0.12;
+      mix-blend-mode: multiply;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .tjanster-hero__content {
+      position: relative;
+      z-index: 5;
+      width: 100%;
+      padding-block: var(--space-24) var(--space-16);
+    }
+
+    @media (min-width: 768px) {
+      .tjanster-hero__content { padding-block: var(--space-32) var(--space-20); }
+    }
+
+    .tjanster-hero__eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(245,240,232,0.65);
+      margin-bottom: var(--space-5);
+    }
+
+    .tjanster-hero__eyebrow::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 1.5px;
+      background: var(--color-bark-light);
+    }
+
+    .tjanster-hero h1 {
+      color: var(--color-cream);
+      max-width: 16ch;
+      margin-bottom: var(--space-6);
+    }
+
+    .tjanster-hero__subtitle {
+      color: rgba(245,240,232,0.72);
+      font-size: 1.0625rem;
+      line-height: 1.75;
+      max-width: 46ch;
+    }
+
+    /* ── Quick Jump Nav ── */
+    .jump-nav {
+      background: var(--color-cream);
+      border-bottom: 1px solid rgba(26,58,42,0.10);
+      padding-block: var(--space-4);
+      position: sticky;
+      top: var(--nav-height);
+      z-index: var(--z-elevated);
+      box-shadow: 0 4px 12px rgba(26,58,42,0.06);
+    }
+
+    .jump-nav__inner {
+      display: flex;
+      gap: var(--space-3);
+      overflow-x: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      padding-inline: var(--space-6);
+    }
+
+    .jump-nav__inner::-webkit-scrollbar { display: none; }
+
+    @media (min-width: 768px) {
+      .jump-nav__inner {
+        padding-inline: var(--space-8);
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .jump-nav__inner { padding-inline: var(--space-12); }
+    }
+
+    .jump-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: var(--space-2) var(--space-5);
+      border-radius: var(--radius-full);
+      font-family: var(--font-body);
+      font-size: 0.8125rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      white-space: nowrap;
+      color: var(--color-forest);
+      background: transparent;
+      border: 1.5px solid rgba(26,58,42,0.22);
+      transition: background var(--duration-base) var(--ease-out),
+                  border-color var(--duration-base) var(--ease-out),
+                  color var(--duration-base) var(--ease-out),
+                  transform var(--duration-base) var(--ease-spring);
+    }
+
+    .jump-pill:hover {
+      background: var(--color-forest-pale);
+      border-color: var(--color-forest);
+      transform: translateY(-1px);
+    }
+
+    .jump-pill:focus-visible {
+      outline: 2px solid var(--color-forest);
+      outline-offset: 3px;
+    }
+
+    .jump-pill:active {
+      transform: scale(0.97);
+    }
+
+    .jump-pill__icon {
+      font-size: 0.875rem;
+    }
+
+    /* ── Service Sections ── */
+    .service-section {
+      padding-block: var(--space-24);
+      position: relative;
+    }
+
+    .service-section:nth-child(even) {
+      background: white;
+    }
+
+    .service-section:nth-child(odd) {
+      background: var(--color-cream);
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-12);
+      align-items: center;
+    }
+
+    @media (min-width: 1024px) {
+      .service-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-20);
+      }
+
+      .service-grid--reverse .service-img-col {
+        order: 2;
+      }
+
+      .service-grid--reverse .service-text-col {
+        order: 1;
+      }
+    }
+
+    .service-img-col {
+      position: relative;
+    }
+
+    .service-img-wrap {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      aspect-ratio: 4 / 3;
+      box-shadow: var(--shadow-elevated);
+    }
+
+    .service-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform var(--duration-slower) var(--ease-out);
+    }
+
+    .service-img-wrap:hover img {
+      transform: scale(1.04);
+    }
+
+    .service-img-wrap .img-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(26,58,42,0.65) 0%, rgba(26,58,42,0.15) 55%, transparent 100%);
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .service-img-wrap .img-color-layer {
+      position: absolute;
+      inset: 0;
+      background: var(--color-forest);
+      opacity: 0.12;
+      mix-blend-mode: multiply;
+      z-index: 3;
+      pointer-events: none;
+    }
+
+    /* Floating accent badge on service image */
+    .service-img-badge {
+      position: absolute;
+      bottom: var(--space-5);
+      left: var(--space-5);
+      z-index: 6;
+      background: rgba(26,58,42,0.85);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(245,240,232,0.15);
+      border-radius: var(--radius-md);
+      padding: var(--space-3) var(--space-4);
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+    }
+
+    .service-img-badge__icon {
+      width: 32px;
+      height: 32px;
+      background: var(--color-bark);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--color-cream);
+    }
+
+    .service-img-badge__text {
+      color: var(--color-cream);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    .service-img-badge__sub {
+      font-size: 0.6875rem;
+      color: rgba(245,240,232,0.60);
+      font-weight: 400;
+    }
+
+    /* Decorative vertical rule left of service number */
+    .service-number {
+      font-family: var(--font-display);
+      font-size: clamp(3.5rem, 8vw, 6rem);
+      font-weight: 700;
+      color: var(--color-forest-pale);
+      line-height: 1;
+      margin-bottom: var(--space-3);
+      letter-spacing: -0.04em;
+      user-select: none;
+    }
+
+    .service-text-col .section-label {
+      margin-bottom: var(--space-3);
+    }
+
+    .service-text-col h2 {
+      margin-bottom: var(--space-5);
+    }
+
+    .service-body {
+      color: var(--color-ink-muted);
+      line-height: 1.8;
+      font-size: 1rem;
+    }
+
+    .service-body p {
+      margin-bottom: var(--space-5);
+    }
+
+    .service-body p:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .service-features {
+      margin-block: var(--space-8);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-3) var(--space-6);
+    }
+
+    .service-feature {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-2);
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--color-ink);
+    }
+
+    .service-feature::before {
+      content: '';
+      display: block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--color-bark);
+      margin-top: 7px;
+      flex-shrink: 0;
+    }
+
+    .service-cta {
+      margin-top: var(--space-8);
+    }
+
+    /* ── CTA Section ── */
+    .cta-section {
+      background: var(--color-forest);
+      padding-block: var(--space-24);
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: -80px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 70%;
+      height: 320px;
+      background: radial-gradient(ellipse at center, rgba(61,122,87,0.30) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .cta-section::after {
+      content: '';
+      position: absolute;
+      bottom: -60px;
+      right: -10%;
+      width: 40%;
+      height: 250px;
+      background: radial-gradient(ellipse at center, rgba(107,66,38,0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .cta-section__content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .cta-section h2 {
+      color: var(--color-cream);
+      margin-bottom: var(--space-5);
+      max-width: 18ch;
+      margin-inline: auto;
+    }
+
+    .cta-section__sub {
+      color: rgba(245,240,232,0.68);
+      font-size: 1.0625rem;
+      max-width: 42ch;
+      margin-inline: auto;
+      margin-bottom: var(--space-10);
+    }
+
+    .cta-section__btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-4);
+      justify-content: center;
+    }
+
+    /* Scroll-reveal delay helpers */
+    .reveal-d1 { transition-delay: 80ms; }
+    .reveal-d2 { transition-delay: 160ms; }
+    .reveal-d3 { transition-delay: 240ms; }
+    .reveal-d4 { transition-delay: 320ms; }
+  </style>
+</head>
+<body>
+
+<!-- ── Navigation ── -->
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="/" class="nav-logo" aria-label="SAWS startsida">
+      <img src="brand_assets/logo-primary.png" alt="SAWS – Ströms Arbor Works AB">
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="/">Hem</a></li>
+      <li><a href="tjanster.html" aria-current="page">Tjänster</a></li>
+      <li><a href="galleri.html">Galleri</a></li>
+      <li><a href="om-oss.html">Om oss</a></li>
+      <li><a href="kontakt.html">Kontakt</a></li>
+    </ul>
+    <a href="tel:+46702078858" class="nav-cta btn btn-primary">070-207 88 58</a>
+    <button class="nav-hamburger" aria-label="Öppna meny" aria-expanded="false" aria-controls="mobile-menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="nav-mobile" id="mobile-menu" role="navigation" aria-label="Mobilmeny">
+  <ul role="list">
+    <li><a href="/">Hem</a></li>
+    <li><a href="tjanster.html" aria-current="page">Tjänster</a></li>
+    <li><a href="galleri.html">Galleri</a></li>
+    <li><a href="om-oss.html">Om oss</a></li>
+    <li><a href="kontakt.html">Kontakt</a></li>
+    <li><a href="tel:+46702078858" class="btn btn-primary btn-lg" style="width:100%;margin-top:16px;justify-content:center;display:flex">Ring oss: 070-207 88 58</a></li>
+  </ul>
+</div>
+
+<!-- ── Page offset ── -->
+<div class="page-content">
+
+  <!-- ── Page Hero ── -->
+  <section class="tjanster-hero" aria-label="Tjänster sidhuvud">
+    <div class="tjanster-hero__bg">
+      <img src="assets/images/gallery-2.jpg" alt="" role="presentation">
+    </div>
+    <div class="tjanster-hero__overlay"></div>
+    <div class="tjanster-hero__color-layer"></div>
+
+    <!-- Grain overlay (unique id) -->
+    <svg style="position:absolute;inset:0;pointer-events:none;z-index:4;width:100%;height:100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <filter id="grain-hero"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/></filter>
+      <rect width="100%" height="100%" filter="url(#grain-hero)" opacity="0.05"/>
+    </svg>
+
+    <div class="container tjanster-hero__content">
+      <div class="tjanster-hero__eyebrow">Certifierade arborister</div>
+      <h1 class="reveal">Våra Tjänster i Strömsund och Jämtland</h1>
+      <p class="tjanster-hero__subtitle reveal reveal-d1">Vi är certifierade arborister med gedigen erfarenhet av trädfällning, stubbfräsning, skotning och röjning i hela Jämtlandsregionen. Säkert, professionellt och med respekt för naturen.</p>
+    </div>
+  </section>
+
+  <!-- ── Quick Jump Nav ── -->
+  <nav class="jump-nav" aria-label="Hoppa till tjänst">
+    <div class="jump-nav__inner">
+      <a href="#sektionsfallning" class="jump-pill">
+        <span class="jump-pill__icon">🌲</span>
+        Sektionsfällning
+      </a>
+      <a href="#stubbfrasning" class="jump-pill">
+        <span class="jump-pill__icon">⚙️</span>
+        Stubbfräsning
+      </a>
+      <a href="#skotning" class="jump-pill">
+        <span class="jump-pill__icon">🚜</span>
+        Skotning
+      </a>
+      <a href="#rojning" class="jump-pill">
+        <span class="jump-pill__icon">🌿</span>
+        Röjningsuppdrag
+      </a>
+    </div>
+  </nav>
+
+  <!-- ════════════════════════════════════════
+       SERVICE 1 — SEKTIONSFÄLLNING
+  ════════════════════════════════════════ -->
+  <section id="sektionsfallning" class="service-section" aria-labelledby="h-sektionsfallning">
+    <div class="container">
+      <div class="service-grid">
+
+        <!-- Image -->
+        <div class="service-img-col reveal">
+          <div class="service-img-wrap">
+            <img src="assets/images/gallery-3.jpg" alt="Sektionsfällning av träd nära byggnad i Strömsund" loading="lazy">
+            <div class="img-overlay"></div>
+            <div class="img-color-layer"></div>
+
+            <!-- SVG grain -->
+            <svg style="position:absolute;inset:0;pointer-events:none;z-index:4;width:100%;height:100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <filter id="grain-sekt"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
+              <feColorMatrix type="saturate" values="0"/></filter>
+              <rect width="100%" height="100%" filter="url(#grain-sekt)" opacity="0.05"/>
+            </svg>
+
+            <div class="service-img-badge">
+              <div class="service-img-badge__icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V12M12 12C12 12 7 9 7 5a5 5 0 0110 0c0 4-5 7-5 7z"/></svg>
+              </div>
+              <div>
+                <div class="service-img-badge__text">Sektionsfällning</div>
+                <div class="service-img-badge__sub">Trädfällning i trånga utrymmen</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Text -->
+        <div class="service-text-col reveal reveal-d1">
+          <div class="service-number" aria-hidden="true">01</div>
+          <span class="section-label">Trädfällning</span>
+          <h2 id="h-sektionsfallning">Sektionsfällning i Strömsund och Jämtland</h2>
+          <div class="divider"></div>
+
+          <div class="service-body">
+            <p>Sektionsfällning är en specialiserad teknik för trädfällning där trädet kapas i sektioner uppifrån och ned, istället för att fällas i ett enda stycke. Metoden används när utrymmet är begränsat och ett traditionellt fällningsarbete inte är möjligt utan risk för skada på omgivningen. Det kan handla om träd som befinner sig nära byggnader, tomtgränser, elledningar, staket eller andra känsliga strukturer.</p>
+
+            <p>Vi på SAWS utför sektionsfällning med hög precision och ett strukturerat säkerhetsarbete. Våra certifierade arborister klättrar upp i trädet med specialutrustning och kapar grenarna sektion för sektion, som sedan sänks ned kontrollerat med rep och riggutrustning. Detta säkerställer att inget material faller okontrollerat och att omgivande mark, byggnader och vegetation skyddas under hela arbetet.</p>
+
+            <p>Tekniken är vanlig i stadsmiljöer och på tomter i Strömsund, Östersund och runt om i Jämtland och Härjedalen, där träd ibland vuxit sig stora och ohanterliga utan tillräckligt fallrum. Det är också en nödvändig metod för gamla och döende träd som kan vara instabila och farliga att fälla på traditionellt vis. Vi bedömer alltid trädets kondition, omgivningens risker och väljer lämpligast teknik för varje enskilt jobb.</p>
+
+            <p>Hos SAWS kombinerar vi lång yrkeserfarenhet med modern rigg- och klätterutrustning. Alla moment utförs enligt gällande säkerhetsregler och vi avslutar alltid med noggrann avverkning och borttransport av allt material om kunden önskar det. Vill du ha en kostnader­fri bedömning av ett svåråtkomligt träd på din fastighet i Strömsund, Strömsund kommun eller övriga Jämtland – kontakta oss idag.</p>
+          </div>
+
+          <div class="service-features" role="list" aria-label="Inkluderat i tjänsten">
+            <div class="service-feature" role="listitem">Klätterfällning med rep</div>
+            <div class="service-feature" role="listitem">Riggad nedsänkning</div>
+            <div class="service-feature" role="listitem">Nära byggnader</div>
+            <div class="service-feature" role="listitem">Elledningszoner</div>
+            <div class="service-feature" role="listitem">Borttransport ingår*</div>
+            <div class="service-feature" role="listitem">Säkerhetsbesiktning</div>
+          </div>
+
+          <div class="service-cta">
+            <a href="kontakt.html" class="btn btn-outline btn-lg">
+              Kontakta oss för offert
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       SERVICE 2 — STUBBFRÄSNING
+  ════════════════════════════════════════ -->
+  <section id="stubbfrasning" class="service-section" aria-labelledby="h-stubbfrasning">
+    <div class="container">
+      <div class="service-grid service-grid--reverse">
+
+        <!-- Text (left on desktop due to reverse) -->
+        <div class="service-text-col reveal">
+          <div class="service-number" aria-hidden="true">02</div>
+          <span class="section-label">Stubbhantering</span>
+          <h2 id="h-stubbfrasning">Stubbfräsning i Strömsund och Jämtland</h2>
+          <div class="divider"></div>
+
+          <div class="service-body">
+            <p>Stubbfräsning är processen att mekaniskt slipa ned en kvarsittande trädstump till nedanför marknivå. När ett träd fällts lämnas ofta en stubbe kvar som kan vara ett estetiskt och praktiskt problem under lång tid. Med vår professionella stubbfräsutrustning löser vi problemet effektivt och skonsamt mot den omgivande markytan och trädgårdsväxterna.</p>
+
+            <p>Vi använder moderna, självgående stubbfräsmaskiner med stor kapacitet som kan hantera stubbar av alla storlekar – från enstaka busk­stubbar till grövre stubbar från stora granar, tallar och lövträd. Maskinen fräser ned stubben och rotsystemet till ett djup av normalt 20–30 centimeter under marknivå, vilket räcker för att kunna etablera ny gräsmatta, anlägga planteringar eller asfalt ovanpå det frästa området.</p>
+
+            <p>Det finns flera skäl att ta bort en gammal stubbe. En kvarliggande stubbe kan bli en snubbelrisk, försvåra gräsklippning och trädgårdsarbete, eller bli en grogrund för svampangrepp och skadeinsekter som kan sprida sig till friska träd och buskar i närheten. Dessutom tenderar en del trädarter att skicka upp rotskott från stubben om den lämnas kvar, vilket kräver löpande beskärning.</p>
+
+            <p>Efter fräsningen samlar vi upp fliset och fyller upp med matjord eller lämnar fliset på plats som naturlig marktäckning, beroende på kundens önskemål. SAWS utför stubbfräsning i hela Strömsund, Dorotea, Strömsund, Ragunda och övriga delar av Jämtland och Västernorrland. Kontakta oss för en snabb och kostnadsfri offert – vi hjälper dig att få en snygg och välskött tomt.</p>
+          </div>
+
+          <div class="service-features" role="list" aria-label="Inkluderat i tjänsten">
+            <div class="service-feature" role="listitem">Alla stubbstorlekar</div>
+            <div class="service-feature" role="listitem">20–30 cm djup</div>
+            <div class="service-feature" role="listitem">Flis bortforslas*</div>
+            <div class="service-feature" role="listitem">Rotsystem fräses</div>
+            <div class="service-feature" role="listitem">Markytefyllning*</div>
+            <div class="service-feature" role="listitem">Snabb service</div>
+          </div>
+
+          <div class="service-cta">
+            <a href="kontakt.html" class="btn btn-outline btn-lg">
+              Kontakta oss för offert
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Image -->
+        <div class="service-img-col reveal reveal-d1">
+          <div class="service-img-wrap">
+            <img src="assets/images/stubbfrasning.jpg" alt="Stubbfräsning med professionell maskin i Strömsund" loading="lazy">
+            <div class="img-overlay"></div>
+            <div class="img-color-layer"></div>
+
+            <svg style="position:absolute;inset:0;pointer-events:none;z-index:4;width:100%;height:100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <filter id="grain-stubb"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
+              <feColorMatrix type="saturate" values="0"/></filter>
+              <rect width="100%" height="100%" filter="url(#grain-stubb)" opacity="0.05"/>
+            </svg>
+
+            <div class="service-img-badge">
+              <div class="service-img-badge__icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+              </div>
+              <div>
+                <div class="service-img-badge__text">Stubbfräsning</div>
+                <div class="service-img-badge__sub">Effektiv stubbhantering</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       SERVICE 3 — SKOTNING
+  ════════════════════════════════════════ -->
+  <section id="skotning" class="service-section" aria-labelledby="h-skotning">
+    <div class="container">
+      <div class="service-grid">
+
+        <!-- Image -->
+        <div class="service-img-col reveal">
+          <div class="service-img-wrap">
+            <img src="assets/images/skotning.jpg" alt="Skotning och virkestransport i jämtländsk skog" loading="lazy">
+            <div class="img-overlay"></div>
+            <div class="img-color-layer"></div>
+
+            <svg style="position:absolute;inset:0;pointer-events:none;z-index:4;width:100%;height:100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <filter id="grain-skot"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
+              <feColorMatrix type="saturate" values="0"/></filter>
+              <rect width="100%" height="100%" filter="url(#grain-skot)" opacity="0.05"/>
+            </svg>
+
+            <div class="service-img-badge">
+              <div class="service-img-badge__icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+              </div>
+              <div>
+                <div class="service-img-badge__text">Skotning</div>
+                <div class="service-img-badge__sub">Virkestransport i terräng</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Text -->
+        <div class="service-text-col reveal reveal-d1">
+          <div class="service-number" aria-hidden="true">03</div>
+          <span class="section-label">Virkeshantering</span>
+          <h2 id="h-skotning">Skotning och Virkestransport i Jämtland</h2>
+          <div class="divider"></div>
+
+          <div class="service-body">
+            <p>Skotning är den process inom skogsbruket där avverkat virke transporteras från avverkningsplatsen ut till en bilväg eller upplag, varifrån det sedan kan lastas på lastbil för vidare transport till sågverk eller industri. Det är ett kritiskt steg i hela avverkningskedjan och kräver rätt utrustning och kompetens för att utföras effektivt och med minimal påverkan på skogsmarken.</p>
+
+            <p>SAWS utför professionell skotning med terrängfordon anpassade för det kuperade och ofta blöta skogslandskapet i Jämtland, Härjedalen och angränsande områden. Våra maskiner hanterar allt från vanlig granskog till mer utmanande terräng med mjuka torvmarker, branta sluttningar och steniga grunder. Vi tar hänsyn till markförhållanden och årstider för att minimera markskadorna.</p>
+
+            <p>Tjänsten riktar sig till skogsägare, skogs­bolag och privata markägare som behöver hjälp med uttransport av virke efter en avverkning, gallring eller stormfällning. Vi samarbetar gärna med lokala skogsbolag och är vana att arbeta på uppdrag av lantbrukare och privata skogsägare i hela Strömsunds, Ragunda, Bräcke och Krokom kommuner.</p>
+
+            <p>En välutförd skotning minskar den totala kostnaden för skogsbruksoperationen och bidrar till att virket levereras till upplag i tid. SAWS prioriterar noggrannhet och effektivitet i varje körning, och vi strävar alltid efter att lämna skogen i bästa möjliga skick efter avslutat arbete. Kontakta oss för att diskutera ditt skotningsbehov och få en offert anpassad till din fastighet och situation.</p>
+          </div>
+
+          <div class="service-features" role="list" aria-label="Inkluderat i tjänsten">
+            <div class="service-feature" role="listitem">Terrängkörning</div>
+            <div class="service-feature" role="listitem">Kuperad mark</div>
+            <div class="service-feature" role="listitem">Gallring & avverkning</div>
+            <div class="service-feature" role="listitem">Stormfällning</div>
+            <div class="service-feature" role="listitem">Markskadeprotokoll</div>
+            <div class="service-feature" role="listitem">Hela Jämtland</div>
+          </div>
+
+          <div class="service-cta">
+            <a href="kontakt.html" class="btn btn-outline btn-lg">
+              Kontakta oss för offert
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       SERVICE 4 — RÖJNINGSUPPDRAG
+  ════════════════════════════════════════ -->
+  <section id="rojning" class="service-section" aria-labelledby="h-rojning">
+    <div class="container">
+      <div class="service-grid service-grid--reverse">
+
+        <!-- Text -->
+        <div class="service-text-col reveal">
+          <div class="service-number" aria-hidden="true">04</div>
+          <span class="section-label">Marksanering</span>
+          <h2 id="h-rojning">Röjningsuppdrag i Strömsund och Jämtland</h2>
+          <div class="divider"></div>
+
+          <div class="service-body">
+            <p>Röjning innebär att rensa och röja mark från sly, buskar, småträd och övervuxen vegetation. Det är en tjänst som efterfrågas av såväl privatpersoner med igenväxta tomter som kommuner, fastighetsbolag och företag med behov av att hålla sin mark i ordnat skick. SAWS utför röjningsuppdrag av alla storlekar, från enstaka trädgårdsytor till större markarealer.</p>
+
+            <p>För privatpersoner i Strömsund och Jämtland kan röjning innebära att återta kontrollen över en tomt som vuxit igen, skapa siktlinjer mot sjö eller naturmiljö, eller förbereda mark för ny bebyggelse, staket, brygga eller odling. Vi röjer effektivt med ryggrucksröjsåg, minigrävare och flishugg beroende på vegetationens typ och volym.</p>
+
+            <p>Kommunala och kommersiella uppdrag kan handla om underhållsröjning längs vägar, järnvägar, kraftledningsgator och industritomter, eller engångsröjning inför exploatering och nybyggnation. Vi kan erbjuda löpande underhållsavtal till fastighetsägare och kommuner som vill säkerställa att sina marker hålls fria och tillgängliga år efter år.</p>
+
+            <p>SAWS är verksamma i hela Strömsunds kommun, inklusive Gäddede, Hammerdal, Backe och Frostviken, samt i angränsande kommuner i Jämtland, Härjedalen och Västernorrland. Vi är vana vid att arbeta i det nordiska klimatets varierande förhållanden och väljer alltid rätt maskinpark och metod för uppdraget. Hör av dig till oss för en kostnadsfri platsbesiktning och offert.</p>
+          </div>
+
+          <div class="service-features" role="list" aria-label="Inkluderat i tjänsten">
+            <div class="service-feature" role="listitem">Slyröjning</div>
+            <div class="service-feature" role="listitem">Tomtröjning</div>
+            <div class="service-feature" role="listitem">Kommunala uppdrag</div>
+            <div class="service-feature" role="listitem">Inför byggnation</div>
+            <div class="service-feature" role="listitem">Underhållsavtal</div>
+            <div class="service-feature" role="listitem">Flishantering</div>
+          </div>
+
+          <div class="service-cta">
+            <a href="kontakt.html" class="btn btn-outline btn-lg">
+              Kontakta oss för offert
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Image (placeholder since no real asset) -->
+        <div class="service-img-col reveal reveal-d1">
+          <div class="service-img-wrap">
+            <img src="assets/images/gallery-3.jpg" alt="Röjningsarbete i Strömsund och Jämtland" loading="lazy">
+            <div class="img-overlay"></div>
+            <div class="img-color-layer"></div>
+
+            <svg style="position:absolute;inset:0;pointer-events:none;z-index:4;width:100%;height:100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <filter id="grain-rojn"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
+              <feColorMatrix type="saturate" values="0"/></filter>
+              <rect width="100%" height="100%" filter="url(#grain-rojn)" opacity="0.05"/>
+            </svg>
+
+            <div class="service-img-badge">
+              <div class="service-img-badge__icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              </div>
+              <div>
+                <div class="service-img-badge__text">Röjningsuppdrag</div>
+                <div class="service-img-badge__sub">Mark- & slyröjning</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA Section ── -->
+  <section class="cta-section" aria-labelledby="h-cta">
+    <!-- Grain -->
+    <svg style="position:absolute;inset:0;pointer-events:none;z-index:1;width:100%;height:100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <filter id="grain-cta"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/></filter>
+      <rect width="100%" height="100%" filter="url(#grain-cta)" opacity="0.05"/>
+    </svg>
+
+    <div class="container cta-section__content">
+      <span class="section-label" style="color:rgba(245,240,232,0.50)" aria-hidden="true">Kom igång idag</span>
+      <h2 id="h-cta" class="reveal">Behöver du hjälp i Strömsund?</h2>
+      <p class="cta-section__sub reveal reveal-d1">Vi svarar snabbt och kan ofta komma ut för besiktning redan samma vecka. Certifierade arborister med gedigen erfarenhet av jämtländska förhållanden.</p>
+
+      <div class="cta-section__btns reveal reveal-d2">
+        <a href="tel:+46702078858" class="btn btn-bark btn-lg">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          Ring oss
+        </a>
+        <a href="kontakt.html" class="btn btn-secondary btn-lg">
+          Kontaktformulär
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer class="footer" role="contentinfo">
+    <svg class="grain-overlay" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <filter id="grain-footer"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/></filter>
+      <rect width="100%" height="100%" filter="url(#grain-footer)" opacity="0.04"/>
+    </svg>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="brand_assets/logo-primary.png" alt="SAWS">
+          <p style="font-size:0.9375rem;margin-top:0;line-height:1.7">Professionell trädfällning, stubbfräsning och röjning i Strömsund och Jämtland.</p>
+          <div class="footer-social" aria-label="Sociala medier">
+            <a href="https://www.facebook.com/stroms.arbor.works.ab" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+            <a href="https://www.instagram.com/stroms.arbor.works.ab" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          </div>
+        </div>
+        <div>
+          <h4>Tjänster</h4>
+          <ul class="footer-links" role="list">
+            <li><a href="tjanster.html#sektionsfallning">Sektionsfällning</a></li>
+            <li><a href="tjanster.html#stubbfrasning">Stubbfräsning</a></li>
+            <li><a href="tjanster.html#skotning">Skotning</a></li>
+            <li><a href="tjanster.html#rojning">Röjningsuppdrag</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Navigation</h4>
+          <ul class="footer-links" role="list">
+            <li><a href="/">Hem</a></li>
+            <li><a href="tjanster.html">Tjänster</a></li>
+            <li><a href="galleri.html">Galleri</a></li>
+            <li><a href="om-oss.html">Om oss</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Kontakt</h4>
+          <div class="footer-contact-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;margin-top:2px"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><a href="tel:+46702078858">070-207 88 58</a></div>
+          <div class="footer-contact-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;margin-top:2px"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><a href="mailto:info@saws.se">info@saws.se</a></div>
+          <div class="footer-contact-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;margin-top:2px"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Amaliagatan 17<br>83333 Strömsund</span></div>
+          <div class="footer-hours"><strong style="color:rgba(245,240,232,0.65)">Öppettider</strong><br>Mån–Fre: 07:00–17:00<br>Lördag: 08:00–14:00<br>Söndag: Stängt</div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Ströms Arbor Works AB</p>
+        <p>Trädfällning Strömsund · Jämtland · Härjedalen · Västernorrland</p>
+      </div>
+    </div>
+  </footer>
+
+</div><!-- /.page-content -->
+
+<!-- ── Shared JS ── -->
+<script>
+  const hamburger = document.querySelector('.nav-hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  if (hamburger && mobileMenu) {
+    hamburger.addEventListener('click', () => {
+      const isOpen = hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open', isOpen);
+      hamburger.setAttribute('aria-expanded', isOpen);
+    });
+    document.addEventListener('click', (e) => {
+      if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
+        hamburger.classList.remove('open'); mobileMenu.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+  const reveals = document.querySelectorAll('.reveal');
+  if (reveals.length) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) { setTimeout(() => entry.target.classList.add('visible'), i * 80); observer.unobserve(entry.target); }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(el => observer.observe(el));
+  }
+</script>
+
+</body>
+</html>
